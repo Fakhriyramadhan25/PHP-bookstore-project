@@ -1,0 +1,53 @@
+html body {
+    overflow-x: hidden;
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+}
+
+.posisi{
+ margin-top: 200px;
+}
+
+.card-img-top{
+    max-height: auto;
+    width: 100px;
+    align-content: center;
+    padding: 0 0 0;
+}
+
+.login-size{
+    width: 200px;
+}
+
+.main-cont{
+    height: 750px;
+}
+
+.icon-sosmed {
+    width: 25px;
+    max-height: auto;
+    margin-top: 5px;
+}
+
+.footer {
+    background-color: antiquewhite;
+    height: 250px;
+}
+
+.footer-margin{
+    margin-top: 20px;
+}
+
+.footer-bmargin{
+    margin-bottom: 10px;
+}
+
+
+.footer-copyright{
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.card-title{
+    justify-content: center;
+}
