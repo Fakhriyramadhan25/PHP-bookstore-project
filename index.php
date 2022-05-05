@@ -55,7 +55,7 @@ if (!isset($_SESSION['is_admin'])) {
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="index.php?p=start">Home</a>
                 <a class="p-2 text-dark" href="?p=products">Products</a>
-                <a class="p-2 text-dark" href="?p=contact">About us</a>
+                <a class="p-2 text-dark" href="?p=contact">Contact</a>
                 <a class="p-2 text-dark" href="?p=cart">Cart</a>
             </nav>
             <a class="btn btn-outline-primary" href="?p=login">Sign in</a>
