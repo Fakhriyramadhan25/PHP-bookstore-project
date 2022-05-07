@@ -37,7 +37,7 @@ if (!isset($_SESSION['is_admin'])) {
     <link href="Assets/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- css details -->
-    <link href="Assets/css/index.css" rel="stylesheet">
+    <link href="Assets/css/home.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
@@ -49,16 +49,20 @@ if (!isset($_SESSION['is_admin'])) {
 
 <body>
 
-    <nav class="navbar navbar-light fixed-top bg-light">
-        <div class="collapse navbar-collapse d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-            <h5 class="my-0 mr-md-auto font-weight-normal">Hellenic Bookstore</h5>
-            <nav class="my-2 my-md-0 mr-md-3">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="collapse navbar-collapse d-flex flex-column flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h5 class="mr-md-auto font-weight-normal">Hellenic Bookstore</h5>
+            <nav class="my-2 my-md-0 mr-md-3 navbar-nav" id="navbarsExampleDefault">
                 <a class="p-2 text-dark" href="index.php?p=start">Home</a>
                 <a class="p-2 text-dark" href="?p=products">Products</a>
-                <a class="p-2 text-dark" href="?p=contact">Contact</a>
+                <a class="p-2 text-dark" href="?p=contact">About us</a>
+                <a class="p-2 text-dark" href="?p=contact">Blogs</a>
                 <a class="p-2 text-dark" href="?p=cart">Cart</a>
             </nav>
-            <a class="btn btn-outline-primary" href="?p=login">Sign in</a>
+            <a class="btn btn-outline-primary fixed-right" href="?p=login">Sign in</a>
         </div>
     </nav>
 
@@ -155,17 +159,14 @@ if (!isset($_SESSION['is_admin'])) {
         </div>
     </div>
 
-
+    <!-- Jquery 3.5.1  -->
+    <script src="Assets/bootstrap/jquery-3.5.1.min.js"></script>
 
     <!-- bootstrap 4.6 javascript  -->
     <script src="Assets/bootstrap/bootstrap.min.js"></script>
 
     <!-- popper 1.16.1 for interactive  -->
     <script src="Assets/bootstrap/popper-1.16.1.min.js"></script>
-
-    <!-- Jquery 3.5.1  -->
-    <script src="Assets/bootstrap/jquery-3.5.1.min.js"></script>
-
 
 </body>
 
