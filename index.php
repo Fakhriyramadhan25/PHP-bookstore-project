@@ -109,55 +109,64 @@ if (!isset($_SESSION['is_admin'])) {
 
     <div class="footer">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-1"> 
             </div>
             <div class="col-md-2 footer-margin">
                 <h3>Our Social Media</h3>
             </div>
-            <div class="col-md-1 footer-margin">
+            <div class="col-md-2 footer-margin">
                 <div class="row">
-                    <div class="col-md">
-                        <a href="#">
+                    <div class="col-md" style="margin-top: 5px;">
+                        <a href="https://www.facebook.com" target="_blank">
                             <img src="Assets/img/facebook.png" class="icon-sosmed" alt="Logo">
                         </a>
+                        <div style="display:inline; margin:5px;"> HBookstore </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md">
-                        <a href="#">
+                    <div class="col-md" style="margin-top: 10px;">
+                        <a href="https://www.instagram.com" target="_blank">
                             <img src="Assets/img/instagram.png" class="icon-sosmed" alt="Logo">
                         </a>
+                        <div style="display:inline; margin:5px;"> HellenicBstore </div>
                     </div>
                 </div>
 
             </div>
-            <div class="col-md-1 footer-margin">
+            <div class="col-md-2 footer-margin">
                 <div class="row">
-                    <div class="col-md">
-                        <a href="#"><img src="Assets/img/twitter.png" class="icon-sosmed" alt="Logo"></a>
+                    <div class="col-md" style="margin-top: 5px;">
+                        <a href="https://www.twitter.com" target="_blank">
+                            <img src="Assets/img/twitter.png" class="icon-sosmed" alt="Logo">
+                        </a>
+                        <div style="display:inline; margin:5px;"> @HBookstore </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md">
-                        <a href="#">
+                    <div class="col-md" style="margin-top: 10px;">
+                        <a href="https://www.youtube.com" target="_blank">
                             <img src="Assets/img/youtube.png" class="icon-sosmed" alt="Logo">
-                        </a>
+                            </a>
+                        <div style="display:inline; margin:5px;"> HelleBookstore </div>
+                    
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 footer-margin">
+            <div class="col-md-4 footer-margin">
                 <div class="row">
-                    <div class="col-md">
-                        <h5>Contact us</h5>
+                    <div class="col-md" style="margin-top: 5px;">
+                        <h5 style="margin-bottom: 2px;">Contact us</h5>
                         <p>info@hellenicBstore.com</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <h5>Address</h5>
+                        <h5 style="margin-bottom: 2px;">Address</h5>
                         <p>Platia Ipporodomiou 100, Thessaloniki, Greece</p>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-1"> 
             </div>
         </div>
         <div class="row">
