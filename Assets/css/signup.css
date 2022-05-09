@@ -16,6 +16,14 @@ html body {
     margin-top: 30px;
     margin-bottom: 0px;
     left: 20px;
+    
+}
+
+.btn-back{
+    width: 50px;
+    max-height: auto;
+    position: absolute;
+    left: 100px;
 }
 
 

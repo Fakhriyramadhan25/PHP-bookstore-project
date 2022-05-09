@@ -1,4 +1,6 @@
-<p>
-This is the start page
+<div class="posisi">
+    <p>
+        This is the start page
 
-</p>
+    </p>
+</div>
