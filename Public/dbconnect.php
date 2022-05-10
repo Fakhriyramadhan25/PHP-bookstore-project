@@ -2,7 +2,7 @@
 $user = 'root';
 $pass = '';
 $host = 'localhost';
-$db = 'bookstore';
+$db = 'onlinebookstore';
 
 
 $mysqli = new mysqli($host, $user, $pass, $db);

@@ -1,21 +1,39 @@
+<?php
+if (isset($_GET["error"])) {
+    $error = $_GET["error"];
+    if ($error == "UP") {
+        echo '<br><br>
+        <div class="alert alert-danger 
+    alert-dismissible fade show" role="alert"> 
+<strong>Error!</strong> Wrong password or username, please try again
+<button type="button" class="close" 
+    data-dismiss="alert aria-label="Close">
+    <span aria-hidden="true">×</span> 
+</button> 
+</div> ';
+    }
+}
+?>
+
 <div class="mx-auto posisi" style="width: 270px;">
     <div class="card" style="width: 22rem;">
         <img src="Assets/img/Logo.jpg" class="card-img-top mx-auto" alt="Logo">
         <div class="card-body">
             <h5 class="card-title text-center">Sign-In Hellenic Bookstore</h5>
-            <form method="post" action="index.php">
-                <label>Username: </label>
-                <br>
-                <input name="username" placeholder="Enter Username" />
-                <br />
-                <label>Password: </label>
-                <br>
-                <input name="pass" type="password" placeholder="Enter Password" />
-                <br />
+            <form action="/bookstore/Public/do_login.php" method="GET">
+                <div class="form-group">
+                    <label>Username: </label>
+                    <input name="Username" placeholder="Enter Username" class="form-control" type="text" />
+
+                </div>
+                <div class="form-group">
+                    <label>Password: </label>
+                    <input name="Password" type="password" placeholder="Enter Password" class="form-control" />
+                </div>
                 <input type="submit" value="LOGIN" class="btn btn-primary" />
                 <input name="p" value="do_login" type="hidden">
             </form>
-            <p class="spacing">Don't you have an account?<span><a href="/bookstore/Public/signup.php" class=""> Sign up </a></span></p>
+            <p class="spacing">Don't you have an account?<span><a href="/bookstore/Public/signup.php"> Sign up </a></span></p>
         </div>
     </div>
 </div>

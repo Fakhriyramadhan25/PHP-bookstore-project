@@ -7,12 +7,13 @@
 session_start();
 require_once "Public/dbconnect.php";
 
-if (isset($_SESSION['username'])) {
-    $_SESSION['username'] = '?';
+if (!isset($_SESSION['username'])) {
+    $_SESSION['username'];
 }
 if (!isset($_SESSION['is_admin'])) {
-    $_SESSION['is_admin'] = 0;
+    $_SESSION['is_admin'];
 }
+
 
 ?>
 
@@ -37,30 +38,11 @@ if (!isset($_SESSION['is_admin'])) {
     <link href="Assets/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- css details -->
-    <link href="Assets/css/home.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
+    <link href="Assets/css/account.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <?php
-    if (isset($_GET["sup"])) {
-        $sup = $_GET["sup"];
-        if ($sup == "true") {
-            echo '<br><br> <div class="alert alert-success 
-        alert-dismissible fade show" role="alert" id="popup">
-        <strong>Success!</strong> Your account is 
-        now created and you can login. 
-        <button type="button" class="close"
-            data-dismiss="alert" aria-label="Close"> 
-            <span aria-hidden="true">×</span> 
-        </button> 
-    </div> ';
-        }
-    }
-    ?>
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <div class="collapse navbar-collapse d-flex flex-column flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -69,13 +51,23 @@ if (!isset($_SESSION['is_admin'])) {
             </button>
             <h5 class="mr-md-auto font-weight-normal">Hellenic Bookstore</h5>
             <nav class="my-2 my-md-0 mr-md-3 navbar-nav" id="navbarsExampleDefault">
-                <a class="p-2 text-dark" href="index.php?p=start">Home</a>
+                <a class="p-2 text-dark" href="account.php?p=start">Home</a>
                 <a class="p-2 text-dark" href="?p=products">Products</a>
-                <a class="p-2 text-dark" href="?p=shopinfo">About us</a>
-                <a class="p-2 text-dark" href="?p=blog">Blogs</a>
+                <a class="p-2 text-dark" href="?p=contact">About us</a>
+                <a class="p-2 text-dark" href="?p=contact">Blogs</a>
                 <a class="p-2 text-dark" href="?p=cart">Cart</a>
             </nav>
-            <a class="btn btn-outline-primary fixed-right" href="?p=login">Sign in</a>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="?p=myinfo">Profile</a>
+                    <a class="dropdown-item" href="?p=wishlist">Wishlist</a>
+                    <a class="dropdown-item" href="?p=logout">Logout</a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -89,7 +81,7 @@ if (!isset($_SESSION['is_admin'])) {
             }
             $p = $_REQUEST['p'];
             // list of the permited pages
-            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart');
+            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
 
             $ok = false;
             foreach ($pages as $pp) {
@@ -109,64 +101,55 @@ if (!isset($_SESSION['is_admin'])) {
 
     <div class="footer">
         <div class="row">
-            <div class="col-md-1"> 
+            <div class="col-md-2">
             </div>
             <div class="col-md-2 footer-margin">
                 <h3>Our Social Media</h3>
             </div>
-            <div class="col-md-2 footer-margin">
+            <div class="col-md-1 footer-margin">
                 <div class="row">
-                    <div class="col-md" style="margin-top: 5px;">
-                        <a href="https://www.facebook.com" target="_blank">
+                    <div class="col-md">
+                        <a href="#">
                             <img src="Assets/img/facebook.png" class="icon-sosmed" alt="Logo">
                         </a>
-                        <div style="display:inline; margin:5px;"> HBookstore </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md" style="margin-top: 10px;">
-                        <a href="https://www.instagram.com" target="_blank">
+                    <div class="col-md">
+                        <a href="#">
                             <img src="Assets/img/instagram.png" class="icon-sosmed" alt="Logo">
                         </a>
-                        <div style="display:inline; margin:5px;"> HellenicBstore </div>
                     </div>
                 </div>
 
             </div>
-            <div class="col-md-2 footer-margin">
+            <div class="col-md-1 footer-margin">
                 <div class="row">
-                    <div class="col-md" style="margin-top: 5px;">
-                        <a href="https://www.twitter.com" target="_blank">
-                            <img src="Assets/img/twitter.png" class="icon-sosmed" alt="Logo">
-                        </a>
-                        <div style="display:inline; margin:5px;"> @HBookstore </div>
+                    <div class="col-md">
+                        <a href="#"><img src="Assets/img/twitter.png" class="icon-sosmed" alt="Logo"></a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md" style="margin-top: 10px;">
-                        <a href="https://www.youtube.com" target="_blank">
+                    <div class="col-md">
+                        <a href="#">
                             <img src="Assets/img/youtube.png" class="icon-sosmed" alt="Logo">
-                            </a>
-                        <div style="display:inline; margin:5px;"> HelleBookstore </div>
-                    
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 footer-margin">
+            <div class="col-md-6 footer-margin">
                 <div class="row">
-                    <div class="col-md" style="margin-top: 5px;">
-                        <h5 style="margin-bottom: 2px;">Contact us</h5>
+                    <div class="col-md">
+                        <h5>Contact us</h5>
                         <p>info@hellenicBstore.com</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <h5 style="margin-bottom: 2px;">Address</h5>
+                        <h5>Address</h5>
                         <p>Platia Ipporodomiou 100, Thessaloniki, Greece</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-1"> 
             </div>
         </div>
         <div class="row">
