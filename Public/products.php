@@ -1,5 +1,3 @@
-
-
 <div class="mx-auto posisi">
     <h1>Welcome to Hellenic Bookstore</h1>
     <?php
