@@ -109,7 +109,7 @@ if (!isset($_SESSION['is_admin'])) {
 
     <div class="footer">
         <div class="row">
-            <div class="col-md-1"> 
+            <div class="col-md-1">
             </div>
             <div class="col-md-2 footer-margin">
                 <h3>Our Social Media</h3>
@@ -146,9 +146,9 @@ if (!isset($_SESSION['is_admin'])) {
                     <div class="col-md" style="margin-top: 10px;">
                         <a href="https://www.youtube.com" target="_blank">
                             <img src="Assets/img/youtube.png" class="icon-sosmed" alt="Logo">
-                            </a>
+                        </a>
                         <div style="display:inline; margin:5px;"> HelleBookstore </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -166,7 +166,7 @@ if (!isset($_SESSION['is_admin'])) {
                     </div>
                 </div>
             </div>
-            <div class="col-md-1"> 
+            <div class="col-md-1">
             </div>
         </div>
         <div class="row">
