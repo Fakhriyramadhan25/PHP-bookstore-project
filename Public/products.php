@@ -6,43 +6,51 @@
     <?php
    // $cat = $_REQUEST['catid'];
     $limit = 5;
+   
     $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+    
     $start = ($page - 1) * $limit; 
-
-    $sql = "SELECT ID,Title,Price FROM product LIMIT $start, $limit ";
+    
+    $sql = "SELECT ID,Title,Price FROM product LIMIT $start, $limit";
     $result = $mysqli->query($sql);
-
-    $result1 = $mysqli->query("SELECT count(ID) As id FROM product);
+    
+    $sql2 = "SELECT COUNT(ID) As id FROM product";
+    $result1 = $mysqli->query($sql2);
     $resultcount = $result1->fetch_all(MYSQLI_ASSOC);
-    $total = $custcount[0]['ID']; 
-    $pages = ceil ($total / $limit);
+    $total = $resultcount[0]['id'];
 
+    $pages = ceil ($total / $limit);
+    $Previous = $page - 1;
+	$Next = $page + 1;
+   
     if ($result -> num_rows > 0) 
-    {   
-        print"<tr> 
-            <th> Name </th>
-            <th> Price </th>
-            </tr>"
-            print "
-            <nav aria-label="Page navigation">
-               <ul class="pagination">
-               <li>
-                 <a href="products.php?page=<?= $Previous; ?>" aria-label="Previous">
-                   <span aria-hidden="true">&laquo; Previous</span>
-                 </a>
-               </li>"
-               for($i = 1; $i<= $pages; $i++)
-               {
-                  print "<li><a href="products.php?page=<?= $i; ?>"><?= $i; ?></a></li>"
-               }
+    {
+        print "<nav aria-label='Page navigation'>
+             <ul class='pagination'>
+             <li>
+             <a href='products.php?page=<?= $Previous; ?>' aria-label='Previous'>
+            <span aria-hidden='true'>&laquo; Previous</span>
+             </a>
+            </li>";  
+
+            for($i = 1; $i<= $pages; $i++)
+            {
+                print "<li><a href='products.php?page=<?= $i; ?>'><?= $i; ?></a></li>";
+            }
    
                print" <li>
-                 <a href="products.php?page=<?= $Next; ?>" aria-label="Next">
-                   <span aria-hidden="true">Next &raquo;</span>
+                 <a href='products.php?page=<?= $Next; ?>' aria-label='Next'>
+                   <span aria-hidden='true'>Next &raquo;</span>
                  </a>
-               </li>"
+               </li>";
              print"</ul>
-           </nav>"    
+           </nav> ";
+
+        print"<tr> 
+        <th> Name </th>
+        <th> Price </th>
+        </tr>";
+
         while( $row = $result->fetch_assoc())
         {
 
@@ -58,5 +66,5 @@
         echo "0 results";
     }
     ?>
-    </table>
-</div>
+    </table> 
+</div> 
