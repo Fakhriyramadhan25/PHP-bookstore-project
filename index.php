@@ -44,9 +44,20 @@ if (!isset($_SESSION['is_admin'])) {
     <!-- Custom styles for this template -->
     <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
 
+    <script> 
+        function doSearch()
+        {
+            location.href="index.php?p=productsearch&searchquery="
+            + document.getElementById("searchtxt").value;
+
+        }
+    </script>
+
+
 </head>
 
-<body>
+<body>  
+
     <?php
     if (isset($_GET["sup"])) {
         $sup = $_GET["sup"];
