@@ -2,13 +2,12 @@
 
 <div class="mx-auto posisi">
      <h1>Welcome to Hellenic Bookstore</h1>
- <table class='table table-striped'>
+ <table class="table table-striped">
     <?php
    // $cat = $_REQUEST['catid'];
-    $limit = 5;
+    $limit = 4;
    
-    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-    
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $start = ($page - 1) * $limit; 
     
     $sql = "SELECT ID,Title,Price FROM product LIMIT $start, $limit";
@@ -27,19 +26,19 @@
     {
         print "<nav aria-label='Page navigation'>
              <ul class='pagination'>
-             <li>
-             <a href='products.php?page=<?= $Previous; ?>' aria-label='Previous'>
-            <span aria-hidden='true'>&laquo; Previous</span>
+             <li class='page-item'>
+             <a class='page-link' href='index.php/products.php?page=$Previous' aria-label='Previous'>
+            <span aria-hidden='true'> &laquo; Previous</span>
              </a>
             </li>";  
 
             for($i = 1; $i<= $pages; $i++)
             {
-                print "<li><a href='products.php?page=<?= $i; ?>'><?= $i; ?></a></li>";
+                print "<li class='page-item'><a class='page-link' href='index.php/products.php?page=$i'>$i</a></li>";
             }
    
-               print" <li>
-                 <a href='products.php?page=<?= $Next; ?>' aria-label='Next'>
+               print" <li class='page-item'>
+                 <a class='page-link' href='index.php/products.php?page=$Next' aria-label='Next'>
                    <span aria-hidden='true'>Next &raquo;</span>
                  </a>
                </li>";
@@ -47,6 +46,7 @@
            </nav> ";
 
         print"<tr> 
+        <th> Thumbnail </th>
         <th> Name </th>
         <th> Price </th>
         </tr>";
