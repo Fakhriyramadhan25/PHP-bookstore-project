@@ -38,6 +38,8 @@ if (!isset($_SESSION['is_admin'])) {
 
     <!-- css details -->
     <link href="Assets/css/home.css" rel="stylesheet">
+    <link href="Assets/css/productsinfo.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
