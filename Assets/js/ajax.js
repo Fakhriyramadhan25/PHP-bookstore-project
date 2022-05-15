@@ -12,23 +12,20 @@ function show_orders_response() {
 	}
 }
 
-
+var xmlhttp2;
 function show_customers() {
-	$.ajax('ajax/show_allusers_json.php', { success: show_customers_json} );
+	xmlhttp2 = new XMLHttpRequest();
+	xmlhttp2.onreadystatechange = show_customers_json;
+	xmlhttp2.open("GET","ajax/show_allusers_json.php",true);
+	xmlhttp2.send();
 }
-
-
-function show_customers_json(x,y,z) {
-	var o = JSON.parse(x);
-	$('#maincontent').html('<table class="table" id="custtable"><thead><tr><th>ID</th><th>Fname</th><th>Lname</th></tr></thead><tbody></tbody></table>');
-	for(var i = 0; i< o.length;i++) {
-		var t = '<tr><td>'+ o[i].ID+'</td><td>'+o[i].Fname+'</td><td>'+o[i].Lname+'</td></tr>';
-		$('#custtable TBODY').append(t);
-
+function show_customers_json(){
+	if (xmlhttp2.readyState==4 && xmlhttp2.status==200) {
+		document.getElementById("maincontent").innerHTML = xmlhttp2.responseText;
 	}
-
-	$.each(o,function(i,x) {
-		$('#custtable TBODY').append('<tr><td>'+ x.ID+'</td><td>'+x.Fname+'</td><td>'+x.Lname+'</td></tr>');
-	});
 }
+
+
+
+
 

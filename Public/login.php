@@ -2,15 +2,14 @@
 if (isset($_GET["error"])) {
     $error = $_GET["error"];
     if ($error == "UP") {
-        echo '<br><br>
-        <div class="alert alert-danger 
-    alert-dismissible fade show" role="alert"> 
-<strong>Error!</strong> Wrong password or username, please try again
-<button type="button" class="close" 
-    data-dismiss="alert aria-label="Close">
-    <span aria-hidden="true">×</span> 
-</button> 
-</div> ';
+        echo '<div class="alert alert-danger 
+        alert-dismissible fade show" role="alert" id="popup">
+        <strong>Success!</strong> Wrong password or username! 
+        <button type="button" class="close"
+            data-dismiss="alert" aria-label="Close"> 
+            <span aria-hidden="true">×</span> 
+        </button> 
+    </div> ';
     }
 }
 ?>

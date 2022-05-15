@@ -7,13 +7,12 @@
 session_start();
 require_once "Public/dbconnect.php";
 
-if (!isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
     $_SESSION['username'];
 }
 if (!isset($_SESSION['is_admin'])) {
     $_SESSION['is_admin'];
 }
-
 
 ?>
 
@@ -40,6 +39,8 @@ if (!isset($_SESSION['is_admin'])) {
     <!-- css details -->
     <link href="Assets/css/account.css" rel="stylesheet">
 
+    <!-- javascript ajax -->
+    <script src="Assets/js/ajax.js"></script>
 </head>
 
 <body>
@@ -61,11 +62,25 @@ if (!isset($_SESSION['is_admin'])) {
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                 </a>
-
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                    <?php
+                    if ($_SESSION['is_admin']) {
+                        print <<<END
+                    <a class="dropdown-item" href="javascript:show_customers()">Customers</a>
+                    <a class="dropdown-item" href="javascript:show_orders()">Orders</a>
+END;
+                    }
+                    if ($_SESSION['username'] != '?') {
+                        print <<<END
                     <a class="dropdown-item" href="?p=myinfo">Profile</a>
                     <a class="dropdown-item" href="?p=wishlist">Wishlist</a>
                     <a class="dropdown-item" href="?p=logout">Logout</a>
+                
+END;
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -74,26 +89,27 @@ if (!isset($_SESSION['is_admin'])) {
     <div class="row main-cont">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-
-            <?php
-            if (!isset($_REQUEST['p'])) {
-                $_REQUEST['p'] = 'start';
-            }
-            $p = $_REQUEST['p'];
-            // list of the permited pages
-            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
-
-            $ok = false;
-            foreach ($pages as $pp) {
-                if ($pp == $p) {
-                    require "Public/$p.php";
-                    $ok = true;
+            <div id="maincontent">
+                <?php
+                if (!isset($_REQUEST['p'])) {
+                    $_REQUEST['p'] = 'start';
                 }
-            }
-            if (!$ok) {
-                print "Page does not exists";
-            }
-            ?>
+                $p = $_REQUEST['p'];
+                // list of the permited pages
+                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
+
+                $ok = false;
+                foreach ($pages as $pp) {
+                    if ($pp == $p) {
+                        require "Public/$p.php";
+                        $ok = true;
+                    }
+                }
+                if (!$ok) {
+                    print "Page does not exists";
+                }
+                ?>
+            </div>
         </div>
         <div class="col-sm-1"></div>
     </div>
@@ -101,7 +117,7 @@ if (!isset($_SESSION['is_admin'])) {
 
     <div class="footer">
         <div class="row">
-        <div class="col-md-1"> 
+            <div class="col-md-1">
             </div>
             <div class="col-md-2 footer-margin">
                 <h3>Our Social Media</h3>
@@ -138,9 +154,9 @@ if (!isset($_SESSION['is_admin'])) {
                     <div class="col-md" style="margin-top: 10px;">
                         <a href="https://www.youtube.com" target="_blank">
                             <img src="Assets/img/youtube.png" class="icon-sosmed" alt="Logo">
-                            </a>
+                        </a>
                         <div style="display:inline; margin:5px;"> HelleBookstore </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -158,7 +174,7 @@ if (!isset($_SESSION['is_admin'])) {
                     </div>
                 </div>
             </div>
-            <div class="col-md-1"> 
+            <div class="col-md-1">
             </div>
         </div>
         <div class="row">

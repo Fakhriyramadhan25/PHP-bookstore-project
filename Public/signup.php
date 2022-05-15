@@ -110,7 +110,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     ?>
 
-
     <div>
         <a href="/bookstore/index.php">
             <img src="../Assets/img/backicon.png" alt="Back Icon" class="btn-back">
