@@ -38,13 +38,26 @@ if (!isset($_SESSION['is_admin'])) {
 
     <!-- css details -->
     <link href="Assets/css/home.css" rel="stylesheet">
+    <link href="Assets/css/productsinfo.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
 
+    <script> 
+        function doSearch()
+        {
+            location.href="index.php?p=productsearch&searchquery="
+            + document.getElementById("searchtxt").value;
+
+        }
+    </script>
+
+
 </head>
 
-<body>
+<body>  
+
     <?php
     if (isset($_GET["sup"])) {
         $sup = $_GET["sup"];

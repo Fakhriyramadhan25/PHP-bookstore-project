@@ -14,8 +14,11 @@ if( $stmt = $mysqli->prepare($sql) ) {
 	$stmt->execute();
 	$result = $stmt->get_result();
 	while ($row = $result->fetch_assoc()) {
-		print "<tr><td><a href='?p=productinfo&pid=$row[ID]'>$row[Title]</a></td>".
-			"<td>$row[Price] &euro;</td></tr>";
+		print "<tr>
+		        <td> <img style ='width:60px' src='Assets/img/BookCover/$row[ID].jpg'<td> ".
+				"<td><a href='?p=productinfo&pid=$row[ID]'>$row[Title]</a></td>".
+				"<td>$row[Price] &euro;</td>
+				</tr>";
 	}
 
 }
