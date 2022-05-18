@@ -3,7 +3,7 @@ $pid = $_REQUEST['pid'];
 $sql = "select * from product where ID=?";
 
 
-if( $stmt = $mysqli->prepare($sql) ) {
+if ($stmt = $mysqli->prepare($sql)) {
 	$stmt->bind_param("i", $pid);
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -19,30 +19,45 @@ if( $stmt = $mysqli->prepare($sql) ) {
 					<p>$row[Description]</p>
 						<input id='qty' type='number' value='1' name='qty'> 
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>
+						<button class='btn btn-primary' id='btn_add_cart' onclick='add_wish($row[ID])'>Save to Wishlist</button>
 				</div>
 			</div>
 		END;
-		
 	}
-
 }
 ?>
 
 
 <div id='response'></div>
 <script>
-var xmlhttp;
-function add_cart(pid) {
-	xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = showresponse;
-	var a = document.getElementById('qty').value;
-	xmlhttp.open("GET","ajax/add_cart.php?pid="+pid+"&qty="+a,true);
-	xmlhttp.send();
-}
+	var xmlhttp;
 
-function showresponse() {
-	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("response").innerHTML = xmlhttp.responseText;
-        }
-}
+	function add_cart(pid) {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = showresponse;
+		var a = document.getElementById('qty').value;
+		xmlhttp.open("GET", "ajax/add_cart.php?pid=" + pid + "&qty=" + a, true);
+		xmlhttp.send();
+	}
+
+	function showresponse() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("response").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	var xmlhttp2;
+
+	function add_wish(pid) {
+		xmlhttp2 = new XMLHttpRequest();
+		xmlhttp2.onreadystatechange = showresponse2;
+		xmlhttp2.open("GET", "ajax/add_cart.php?pid=" + pid, true);
+		xmlhttp2.send();
+	}
+
+	function showresponse2() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("response").innerHTML = xmlhttp2.responseText;
+		}
+	}
 </script>

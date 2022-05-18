@@ -40,7 +40,7 @@ if (!isset($_SESSION['is_admin'])) {
     <link href="Assets/css/account.css" rel="stylesheet">
 
     <!-- javascript ajax -->
-    <script src="Assets/js/ajax.js"></script>
+    <script src="Assets/js/js_account.js"></script>
 </head>
 
 <body>
@@ -54,8 +54,8 @@ if (!isset($_SESSION['is_admin'])) {
             <nav class="my-2 my-md-0 mr-md-3 navbar-nav" id="navbarsExampleDefault">
                 <a class="p-2 text-dark" href="account.php?p=start">Home</a>
                 <a class="p-2 text-dark" href="?p=products">Products</a>
-                <a class="p-2 text-dark" href="?p=contact">About us</a>
-                <a class="p-2 text-dark" href="?p=contact">Blogs</a>
+                <a class="p-2 text-dark" href="?p=shopinfo">About us</a>
+                <a class="p-2 text-dark" href="?p=blog">Blogs</a>
                 <a class="p-2 text-dark" href="?p=cart">Cart</a>
             </nav>
             <div class="dropdown show">

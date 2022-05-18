@@ -49,7 +49,7 @@ if (!isset($_SESSION['is_admin'])) {
     if (isset($_GET["sup"])) {
         $sup = $_GET["sup"];
         if ($sup == "true") {
-            echo '<br><br> <div class="alert alert-success 
+            echo '<br> <div class="alert alert-success 
         alert-dismissible fade show" role="alert" id="popup">
         <strong>Success!</strong> Your account is 
         now created and you can login. 

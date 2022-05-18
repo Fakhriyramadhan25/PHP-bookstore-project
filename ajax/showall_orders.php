@@ -11,6 +11,7 @@ $sql = 'SELECT *,O.ID as OID,C.ID as CID FROM orders O INNER JOIN  `customer` C 
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $res = $stmt->get_result();
+print "<h2>List of Orders</h2>";
 print "<ol>";
 
 
