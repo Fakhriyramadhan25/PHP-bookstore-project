@@ -1,0 +1,30 @@
+html body {
+    overflow-x: hidden;
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.btn-primary{
+    width: 22rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.justify-content-center{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    left: 20px;
+    
+}
+
+.btn-back{
+    width: 50px;
+    max-height: auto;
+    position: absolute;
+    left: 100px;
+}
+
+
+

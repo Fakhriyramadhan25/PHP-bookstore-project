@@ -8,10 +8,10 @@ session_start();
 require_once "Public/dbconnect.php";
 
 if (isset($_SESSION['username'])) {
-    $_SESSION['username'] = '?';
+    $_SESSION['username'];
 }
 if (!isset($_SESSION['is_admin'])) {
-    $_SESSION['is_admin'] = 0;
+    $_SESSION['is_admin'];
 }
 
 ?>
@@ -37,43 +37,13 @@ if (!isset($_SESSION['is_admin'])) {
     <link href="Assets/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- css details -->
-    <link href="Assets/css/home.css" rel="stylesheet">
-    <link href="Assets/css/productsinfo.css" rel="stylesheet">
+    <link href="Assets/css/account.css" rel="stylesheet">
 
-
-    <!-- Custom styles for this template -->
-    <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
-
-    <script> 
-        function doSearch()
-        {
-            location.href="index.php?p=productsearch&searchquery="
-            + document.getElementById("searchtxt").value;
-
-        }
-    </script>
-
-
+    <!-- javascript ajax -->
+    <script src="Assets/js/js_account.js"></script>
 </head>
 
-<body>  
-
-    <?php
-    if (isset($_GET["sup"])) {
-        $sup = $_GET["sup"];
-        if ($sup == "true") {
-            echo '<br> <div class="alert alert-success 
-        alert-dismissible fade show" role="alert" id="popup">
-        <strong>Success!</strong> Your account is 
-        now created and you can login. 
-        <button type="button" class="close"
-            data-dismiss="alert" aria-label="Close"> 
-            <span aria-hidden="true">×</span> 
-        </button> 
-    </div> ';
-        }
-    }
-    ?>
+<body>
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <div class="collapse navbar-collapse d-flex flex-column flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -82,39 +52,64 @@ if (!isset($_SESSION['is_admin'])) {
             </button>
             <h5 class="mr-md-auto font-weight-normal">Hellenic Bookstore</h5>
             <nav class="my-2 my-md-0 mr-md-3 navbar-nav" id="navbarsExampleDefault">
-                <a class="p-2 text-dark" href="index.php?p=start">Home</a>
+                <a class="p-2 text-dark" href="account.php?p=start">Home</a>
                 <a class="p-2 text-dark" href="?p=products">Products</a>
                 <a class="p-2 text-dark" href="?p=shopinfo">About us</a>
                 <a class="p-2 text-dark" href="?p=blog">Blogs</a>
                 <a class="p-2 text-dark" href="?p=cart">Cart</a>
             </nav>
-            <a class="btn btn-outline-primary fixed-right" href="?p=login">Sign in</a>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                    <?php
+                    if ($_SESSION['is_admin']) {
+                        print <<<END
+                    <a class="dropdown-item" href="javascript:show_customers()">Customers</a>
+                    <a class="dropdown-item" href="javascript:show_orders()">Orders</a>
+END;
+                    }
+                    if ($_SESSION['username'] != '?') {
+                        print <<<END
+                    <a class="dropdown-item" href="?p=myinfo">Profile</a>
+                    <a class="dropdown-item" href="?p=wishlist">Wishlist</a>
+                    <a class="dropdown-item" href="?p=logout">Logout</a>
+                
+END;
+                    }
+                    ?>
+
+                </div>
+            </div>
         </div>
     </nav>
 
     <div class="row main-cont">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-
-            <?php
-            if (!isset($_REQUEST['p'])) {
-                $_REQUEST['p'] = 'start';
-            }
-            $p = $_REQUEST['p'];
-            // list of the permited pages
-            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart');
-
-            $ok = false;
-            foreach ($pages as $pp) {
-                if ($pp == $p) {
-                    require "Public/$p.php";
-                    $ok = true;
+            <div id="maincontent">
+                <?php
+                if (!isset($_REQUEST['p'])) {
+                    $_REQUEST['p'] = 'start';
                 }
-            }
-            if (!$ok) {
-                print "Page does not exists";
-            }
-            ?>
+                $p = $_REQUEST['p'];
+                // list of the permited pages
+                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
+
+                $ok = false;
+                foreach ($pages as $pp) {
+                    if ($pp == $p) {
+                        require "Public/$p.php";
+                        $ok = true;
+                    }
+                }
+                if (!$ok) {
+                    print "Page does not exists";
+                }
+                ?>
+            </div>
         </div>
         <div class="col-sm-1"></div>
     </div>

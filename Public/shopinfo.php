@@ -10,3 +10,4 @@ echo "Hello from php";
 
 ?>
 </p>
+<?php?>
