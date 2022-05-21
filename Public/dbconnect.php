@@ -1,6 +1,10 @@
 <?php
 $user = 'root';
+<<<<<<< HEAD
 $pass = '';
+=======
+$pass = '12345';
+>>>>>>> 6261026ca50e34c392b37e7f64b9888b3cfef183
 $host = 'localhost';
 $db = 'bookstore';
 
