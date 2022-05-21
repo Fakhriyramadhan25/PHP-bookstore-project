@@ -39,6 +39,9 @@ if ($stmt = $mysqli->prepare($sql)) {
 					<p>$row[Description]</p>
 						<input id='qty' type='number' value='1' name='qty'> 
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>
+						
+							
+				
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_wish($row[ID])'>Save to Wishlist</button>
 					</tr>
 				</div>
@@ -54,18 +57,23 @@ if ($stmt = $mysqli->prepare($sql)) {
 
 	function add_cart(pid) {
 		xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = showresponse;
+	
 		var a = document.getElementById('qty').value;
 		xmlhttp.open("GET", "ajax/add_cart.php?pid=" + pid + "&qty=" + a, true);
 		xmlhttp.send();
+		xmlhttp.onreadystatechange = showresponse;
+
 	}
+	
+	
 
 	function showresponse() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("response").innerHTML = xmlhttp.responseText;
+		alert("Successfully!");
 		}
 	}
-
+	
+	
 	var xmlhttp2;
 
 	function add_wish(pid) {

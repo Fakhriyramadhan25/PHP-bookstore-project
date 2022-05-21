@@ -102,7 +102,10 @@ if (!isset($_SESSION['is_admin'])) {
             }
             $p = $_REQUEST['p'];
             // list of the permited pages
-            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart');
+            $pages = array('blog', 'start', 
+            'shopinfo', 'login', 'do_login', 'after_login', 
+            'logout', 'myinfo', 'products', 'blog_op', 'blogtest', 'bloginsider',
+            'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart');
 
             $ok = false;
             foreach ($pages as $pp) {
