@@ -18,6 +18,8 @@
   $pages = ceil($total / $limit);
   $Previous = $page - 1;
   $Next = $page + 1;
+  print "<input type = 'text' id='searchtxt' style = 'position:absolute; left:900px; top:-40px;'/>
+  <button class='btn btn-dark' onclick='doSearch()' style = 'position:absolute; left:1112px; top:-43px;'>Search</button>";
 
   if ($result->num_rows > 0) {
     $pagestatusprev = ($page == 1) ? 'disabled' : '';

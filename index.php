@@ -43,17 +43,15 @@ if (!isset($_SESSION['is_admin'])) {
 
     <!-- Custom styles for this template -->
     <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
+    
 
     <script> 
         function doSearch()
         {
-            location.href="index.php?p=productsearch&searchquery="
-            + document.getElementById("searchtxt").value;
+            location.href="index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
 
         }
     </script>
-
-
 </head>
 
 <body>  
@@ -102,7 +100,7 @@ if (!isset($_SESSION['is_admin'])) {
             }
             $p = $_REQUEST['p'];
             // list of the permited pages
-            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart');
+            $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'productsearch');
 
             $ok = false;
             foreach ($pages as $pp) {
