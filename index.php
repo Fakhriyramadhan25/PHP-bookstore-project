@@ -78,6 +78,7 @@ if (!isset($_SESSION['is_admin'])) {
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <img src="Assets/img/Logo.jpg" alt="logo.jpg" height="42px" width=auto/>
             <h5 class="mr-md-auto font-weight-normal">Hellenic Bookstore</h5>
             <nav class="my-2 my-md-0 mr-md-3 navbar-nav" id="navbarsExampleDefault">
                 <a class="p-2 text-dark" href="index.php?p=start">Home</a>
