@@ -1,13 +1,12 @@
-<h1 >
-This is the page about the our shop
+<h1>
+    This is the page about the our shop
 </h1>
 
 <p>
 
-<?php
+    <?php
 
-echo "Hello from php";
+    echo "Hello from php";
 
-?>
+    ?>
 </p>
-<?php?>

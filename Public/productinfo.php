@@ -7,18 +7,15 @@ if ($stmt = $mysqli->prepare($sql)) {
 	$stmt->bind_param("i", $pid);
 	$stmt->execute();
 	$result = $stmt->get_result();
-	print "<table class='table table-striped table table-bordered'>";
+	print "<table class='table table-striped table-bordered'>";
 
 	while ($row = $result->fetch_assoc()) {
-		/*print  "<b>$row[Title]</b>".
-		"<p>$row[Description]</p>".
-		"<input id='qty' type='number' value='1' name='qty'> <button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>";*/
 		print <<<END
 			<div class='container mx-auto'>
 				<div class='panel panel-default'>
 					<tr>
 					<th></th>
-					<td><img width=200px src='Assets/img/BookCover/$row[ID].jpg' class="mx-auto d-block"></td>
+					<td><img width=200px src='Assets/img/BookCover/$row[Bookcover]' class="mx-auto d-block"></td>
 					</tr>
 					<tr>
 					<th>Title</th>
@@ -29,7 +26,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 					<td><div class='panel-heading'>$row[Genre]</div></td>
 					</tr>
 					<tr>
-					<th>ISBN<th/>
+					<th>ISBN</th>
 					<td><div class='panel-heading'>$row[ISBN]</div></td>
 					</tr>
 					<tr>
@@ -43,6 +40,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 						<input id='qty' type='number' value='1' name='qty'> 
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_wish($row[ID])'>Save to Wishlist</button>
+					</tr>
 				</div>
 			</div>
 			
@@ -50,9 +48,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 	}
 }
 ?>
-
-
-<div id='response'></div>
+</table>
 <script>
 	var xmlhttp;
 
