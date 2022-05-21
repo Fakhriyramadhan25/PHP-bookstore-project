@@ -8,6 +8,9 @@ $searchquery = '%'.$_REQUEST['searchquery'].'%';
 $sql = "select * from product where Title like ?";
 ///print "<pre>cat = $cat</pre>";
 //print "<pre>sql = $sql</pre>";
+print"<form>
+<input type='button' class='btn btn-dark' value='Back' onclick='history.back()' style = 'position:absolute; left:15px; top:-50px;'>
+</form>";
 
 if( $stmt = $mysqli->prepare($sql) ) {
 	$stmt->bind_param("s", $searchquery);
