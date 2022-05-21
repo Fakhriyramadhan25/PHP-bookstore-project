@@ -1,5 +1,5 @@
 <h1>Welcome to Hellenic Bookstore</h1>
-<table class="table table-striped">
+<table class="table table-striped mb-2">
   <?php
   // $cat = $_REQUEST['catid'];
   $limit = 4;

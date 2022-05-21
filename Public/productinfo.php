@@ -7,7 +7,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 	$stmt->bind_param("i", $pid);
 	$stmt->execute();
 	$result = $stmt->get_result();
-	print "<table class='table table-striped table-bordered'>";
+	print "<table class='table table-striped table-bordered mb-2'>";
 
 	while ($row = $result->fetch_assoc()) {
 		print <<<END
@@ -40,15 +40,16 @@ if ($stmt = $mysqli->prepare($sql)) {
 						<input id='qty' type='number' value='1' name='qty'> 
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_wish($row[ID])'>Save to Wishlist</button>
+						
 					</tr>
 				</div>
 			</div>
-			
+			</table>
 		END;
 	}
 }
 ?>
-</table>
+
 <script>
 	var xmlhttp;
 
@@ -56,7 +57,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = showresponse;
 		var a = document.getElementById('qty').value;
-		xmlhttp.open("GET", "ajax/add_cart.php?pid=" + pid + "&qty=" + a, true);
+		xmlhttp.open("GET", "Public/add_cart.php?pid=" + pid + "&qty=" + a, true);
 		xmlhttp.send();
 	}
 
@@ -71,7 +72,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 	function add_wish(pid) {
 		xmlhttp2 = new XMLHttpRequest();
 		xmlhttp2.onreadystatechange = showresponse2;
-		xmlhttp2.open("GET", "ajax/add_cart.php?pid=" + pid, true);
+		xmlhttp2.open("GET", "Public/add_wish.php?pid=" + pid, true);
 		xmlhttp2.send();
 	}
 

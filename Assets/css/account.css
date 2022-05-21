@@ -20,7 +20,7 @@ html body {
 }
 
 .main-cont{
-    height: 700px;
+    min-height: 750px;
     margin-top: 100px;
 }
 
