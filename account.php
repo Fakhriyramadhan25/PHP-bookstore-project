@@ -103,7 +103,7 @@ END;
                 }
                 $p = $_REQUEST['p'];
                 // list of the permited pages
-                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'productsearch', 'wishlist');
+                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'bloginsider', 'logout', 'blog_op', 'productsearch', 'blogtest', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
 
                 $ok = false;
                 foreach ($pages as $pp) {
