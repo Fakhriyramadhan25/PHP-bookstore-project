@@ -40,15 +40,16 @@ if ($stmt = $mysqli->prepare($sql)) {
 						<input id='qty' type='number' value='1' name='qty'> 
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_wish($row[ID])'>Save to Wishlist</button>
-						
-					</tr>
-				</div>
-			</div>
-			</table>
+						</tr>
+						</div>
+					</div>
+					</table>
 		END;
 	}
 }
+
 ?>
+<div id="response"></div>
 
 <script>
 	var xmlhttp;
@@ -57,7 +58,7 @@ if ($stmt = $mysqli->prepare($sql)) {
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = showresponse;
 		var a = document.getElementById('qty').value;
-		xmlhttp.open("GET", "Public/add_cart.php?pid=" + pid + "&qty=" + a, true);
+		xmlhttp.open("GET", "ajax/add_cart.php?pid=" + pid + "&qty=" + a, true);
 		xmlhttp.send();
 	}
 
@@ -72,12 +73,12 @@ if ($stmt = $mysqli->prepare($sql)) {
 	function add_wish(pid) {
 		xmlhttp2 = new XMLHttpRequest();
 		xmlhttp2.onreadystatechange = showresponse2;
-		xmlhttp2.open("GET", "Public/add_wish.php?pid=" + pid, true);
+		xmlhttp2.open("GET", "ajax/add_wish.php?pid=" + pid, true);
 		xmlhttp2.send();
 	}
 
 	function showresponse2() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
 			document.getElementById("response").innerHTML = xmlhttp2.responseText;
 		}
 	}

@@ -14,6 +14,7 @@ if (!isset($_SESSION['is_admin'])) {
     $_SESSION['is_admin'];
 }
 
+
 ?>
 
 <head>
@@ -41,6 +42,12 @@ if (!isset($_SESSION['is_admin'])) {
 
     <!-- javascript ajax -->
     <script src="Assets/js/js_account.js"></script>
+
+    <script>
+        function doSearch() {
+            location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
+        }
+    </script>
 </head>
 
 <body>
@@ -96,7 +103,7 @@ END;
                 }
                 $p = $_REQUEST['p'];
                 // list of the permited pages
-                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
+                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'logout', 'myinfo', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'productsearch', 'wishlist');
 
                 $ok = false;
                 foreach ($pages as $pp) {
@@ -115,7 +122,7 @@ END;
     </div>
 
 
-    <div class="footer">
+    <div class="footer mt-4">
         <div class="row">
             <div class="col-md-1">
             </div>

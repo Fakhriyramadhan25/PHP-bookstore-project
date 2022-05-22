@@ -30,11 +30,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $row = $result->fetch_assoc();
-                    print '<ul class="list-group-item"><li>$row[Title]</li>';
-                    print '<li class="list-group-item"> <a class="delete" href="account.php?p=wishlist&action=delete"> [X] </a></li></ul>';
-                }
-                if ($c == 0 || $c > 0) {
-                    print "<h4>Your wishlist is empty :-(</h5>";
+                    print '
+                    <div class="card-body">
+                    <img class="card-img-top" src="Assets/img/BookCover/' . $row["Bookcover"] . '">
+    <p class="card-text">' . $row["Title"] . ' <span><a class="delete" href="account.php?p=wishlist&action=delete"> [X] </a></span></p> 
+  </div>
+                    ';
                 }
             }
             ?>
