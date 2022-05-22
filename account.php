@@ -14,7 +14,6 @@ if (!isset($_SESSION['is_admin'])) {
     $_SESSION['is_admin'];
 }
 
-
 ?>
 
 <head>
@@ -39,10 +38,14 @@ if (!isset($_SESSION['is_admin'])) {
 
     <!-- css details -->
     <link href="Assets/css/account.css" rel="stylesheet">
+    <link href="Assets/css/productsinfo.css" rel="stylesheet">
+    <link href="Assets/css/main.css" rel="stylesheet">
 
     <!-- javascript ajax -->
     <script src="Assets/js/js_account.js"></script>
 
+    <!-- Custom styles for this template -->
+    <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
     <script>
         function doSearch() {
             location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
@@ -93,17 +96,22 @@ END;
         </div>
     </nav>
 
+<div class="container-fluid">
     <div class="row main-cont">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-            <div id="maincontent">
+            <div id="maincontent" >
                 <?php
                 if (!isset($_REQUEST['p'])) {
                     $_REQUEST['p'] = 'start';
                 }
                 $p = $_REQUEST['p'];
                 // list of the permited pages
-                $pages = array('blog', 'start', 'shopinfo', 'login', 'do_login', 'after_login', 'bloginsider', 'logout', 'blog_op', 'productsearch', 'blogtest', 'products', 'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
+                $pages = array(
+                    'blog', 'start',
+                    'shopinfo', 'login', 'do_login', 'after_login',
+                    'bloginsider', 'logout', 'blog_op', 'productsearch','blogtest', 'products',
+                    'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'wishlist', 'myinfo');
 
                 $ok = false;
                 foreach ($pages as $pp) {
@@ -120,7 +128,7 @@ END;
         </div>
         <div class="col-sm-1"></div>
     </div>
-
+</div>
 
     <div class="footer mt-4">
         <div class="row">
