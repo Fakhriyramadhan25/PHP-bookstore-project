@@ -39,6 +39,7 @@ if (!isset($_SESSION['is_admin'])) {
 
     <!-- css details -->
     <link href="Assets/css/account.css" rel="stylesheet">
+    <link href="Assets/css/productsinfo.css" rel="stylesheet">
 
     <!-- javascript ajax -->
     <script src="Assets/js/js_account.js"></script>
@@ -93,6 +94,7 @@ END;
         </div>
     </nav>
 
+
     <div class="row main-cont">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
@@ -120,7 +122,6 @@ END;
         </div>
         <div class="col-sm-1"></div>
     </div>
-
 
     <div class="footer mt-4">
         <div class="row">

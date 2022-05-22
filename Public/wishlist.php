@@ -18,7 +18,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
             }
 
             if (count($_SESSION['wlist']) == 0) {
-                print "There is no wishlist";
+                print "<div class='card-body'><p class='card-text'>There is no wishlist</p></div>";
                 return;
             } else {
                 $sql = "select * from product where ID=?";

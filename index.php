@@ -88,36 +88,39 @@ if (!isset($_SESSION['is_admin'])) {
         </div>
     </nav>
 
-    <div class="row main-cont">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
+    <div class="container-fluid">
+        <div class="row main-cont">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="maincontent">
+                    <?php
+                    if (!isset($_REQUEST['p'])) {
+                        $_REQUEST['p'] = 'start';
+                    }
+                    $p = $_REQUEST['p'];
+                    // list of the permited pages
+                    $pages = array(
+                        'blog', 'start',
+                        'shopinfo', 'login', 'do_login', 'after_login',
+                        'logout', 'myinfo', 'products', 'blog_op', 'blogtest', 'bloginsider',
+                        'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'productsearch'
+                    );
 
-            <?php
-            if (!isset($_REQUEST['p'])) {
-                $_REQUEST['p'] = 'start';
-            }
-            $p = $_REQUEST['p'];
-            // list of the permited pages
-            $pages = array(
-                'blog', 'start',
-                'shopinfo', 'login', 'do_login', 'after_login',
-                'logout', 'myinfo', 'products', 'blog_op', 'blogtest', 'bloginsider',
-                'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'productsearch'
-            );
-
-            $ok = false;
-            foreach ($pages as $pp) {
-                if ($pp == $p) {
-                    require "Public/$p.php";
-                    $ok = true;
-                }
-            }
-            if (!$ok) {
-                print "Page does not exists";
-            }
-            ?>
+                    $ok = false;
+                    foreach ($pages as $pp) {
+                        if ($pp == $p) {
+                            require "Public/$p.php";
+                            $ok = true;
+                        }
+                    }
+                    if (!$ok) {
+                        print "Page does not exists";
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
         </div>
-        <div class="col-sm-1"></div>
     </div>
 
 
@@ -192,7 +195,7 @@ if (!isset($_SESSION['is_admin'])) {
             </div>
         </div>
     </div>
-
+    </div>
     <!-- Jquery 3.5.1  -->
     <script src="Assets/bootstrap/jquery-3.5.1.min.js"></script>
 
