@@ -1,5 +1,5 @@
 <h1>Welcome to Hellenic Bookstore</h1>
-<table class="table table-striped">
+<table class="table table-striped mb-2">
   <?php
   // $cat = $_REQUEST['catid'];
   $limit = 4;
@@ -34,11 +34,11 @@
             </li>";
 
     for ($i = 1; $i <= $pages; $i++) {
-      print "<li class='page-item'><a class='page-link' href='index.php?p=products&page=$i'>$i</a></li>";
+      print "<li class='page-item'><a class='page-link' href='?p=products&page=$i'>$i</a></li>";
     }
 
     print " <li class='page-item $pagestatusnext'>
-                 <a class='page-link' href='index.php?p=products&page=$Next' aria-label='Next'>
+                 <a class='page-link' href='?p=products&page=$Next' aria-label='Next'>
                    <span aria-hidden='true'>Next &raquo</span>
                  </a>
                </li>";
