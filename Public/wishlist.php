@@ -4,7 +4,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
     unset($_SESSION['wlist']);
     header("Location: account.php?p=wishlist");
 }
-
 ?>
 
 <h2>My Wishlist</h2>
@@ -30,13 +29,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                 print '
                     <div class="card-body">
                     <img class="card-img-top" src="Assets/img/BookCover/' . $row["Bookcover"] . '">
-    <p class="card-text">' . $row["Title"] . ' <span><a class="delete" href="account.php?p=wishlist&action=delete"> [X] </a></span></p> 
-  </div>
-                    ';
+    <p class="card-text">' . $row["Title"] . ' <span><a class="delete" href="account.php?p=wishlist&action=delete"> [X] </a>
+    </span></p> 
+  </div>';
             }
         }
-        ?>
 
+        ?>
     </div>
 
 </div>

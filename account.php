@@ -7,8 +7,9 @@
 session_start();
 require_once "Public/dbconnect.php";
 
-if (isset($_SESSION['username'])) {
-    $_SESSION['username'];
+if (!isset($_SESSION['username'])) {
+    header("location: index.php");
+    exit;
 }
 if (!isset($_SESSION['is_admin'])) {
     $_SESSION['is_admin'];
@@ -39,19 +40,19 @@ if (!isset($_SESSION['is_admin'])) {
     <!-- css details -->
     <link href="Assets/css/account.css" rel="stylesheet">
     <link href="Assets/css/productsinfo.css" rel="stylesheet">
-    <<<<<<< HEAD=======<link href="Assets/css/main.css" rel="stylesheet">
-        >>>>>>> 5db4d8a5a413973e10b47a002f8eb37e074c0388
+    <link href="Assets/css/main.css" rel="stylesheet">
 
-        <!-- javascript ajax -->
-        <script src="Assets/js/js_account.js"></script>
 
-        <!-- Custom styles for this template -->
-        <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
-        <script>
-            function doSearch() {
-                location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
-            }
-        </script>
+    <!-- javascript ajax -->
+    <script src="Assets/js/js_account.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
+    <script>
+        function doSearch() {
+            location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
+        }
+    </script>
 </head>
 
 <body>
