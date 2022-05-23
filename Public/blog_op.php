@@ -18,23 +18,24 @@
 </head>
 
 <body>
+<div class="container">
+<div class="row align-items-start" style="margin-top: 40px; margin-bottom: 20px;">
+    <div class="col-md-12">
 
-
-    <img src="Assets/img/Blogs/Open.jpg" class="image">
-    <h1><b>
-            <br>
+    <img src="Assets/img/Blogs/Open1.jpg" class="image">
+    <h1>
+    <br>
             We're open!
-        </b> <br>
+     <br>
     </h1>
 
 
 
-    <div>
-        <h3>Grand opening of our store will take place in Melburn.
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    <h5 class="title">Grand opening of our store will take place in Melburn.</h5>
+    <p class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h3>
-    </div>
-</body>
-
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div> </div> </div>
+        </body>
+       
 </html>

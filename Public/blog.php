@@ -25,9 +25,6 @@
     width: 350px;
 }
 .card2{
-    width: 350px;
-}
-.card3{
     display: block;
   margin-left: auto;
   margin-right: auto;
@@ -51,10 +48,11 @@
  <div class="container">
     <h1>Welcome to our Blog!</h1>
     
-    <div class="container row">
-
+    <div class="row">
+    <div class="column-12">
+    <div class="card-deck">
     <div class="card" 100% wide until small breakpoint>
-                <img src="Assets/img/Blogs/Open.jpg" class="card" alt="...">
+                <img src="Assets/img/Blogs/Open1.jpg" class="card2" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">We're open!</h5>
                     <p class="card-text">Grand opening of our store will take <br>place in Melburn.</p>
@@ -64,7 +62,7 @@
         </div>
        
             <div class="card" 100% wide until small breakpoint>
-                <img src="Assets/img/Blogs/book.jpg" class="card3" alt="...">
+                <img src="Assets/img/Blogs/book3.jpg" class="card2" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Opening soon!</h5>
                     <p class="card-text">New bookshop is coming! <br>See you in Melburn.</p>
@@ -75,7 +73,7 @@
         </div>
        
             <div class="card" 100% wide until small breakpoint>
-                <img src="Assets\img\Blogs\insider.jpg" class="card2" alt="...">
+                <img src="Assets\img\Blogs\insider1.jpg" class="card2" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Insider: <br>how to create a bookshop?</h5>
                     <p class="card-text">Hard work for enthusiasts.</p>
@@ -85,7 +83,7 @@
         
         </div>
         
-    </div>
+    </div></div></div></div>
     
  </div>
 

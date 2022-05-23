@@ -7,8 +7,9 @@
 session_start();
 require_once "Public/dbconnect.php";
 
-if (isset($_SESSION['username'])) {
-    $_SESSION['username'];
+if (!isset($_SESSION['username'])) {
+    header("location: index.php");
+    exit;
 }
 if (!isset($_SESSION['is_admin'])) {
     $_SESSION['is_admin'];
@@ -40,18 +41,22 @@ if (!isset($_SESSION['is_admin'])) {
     <link href="Assets/css/account.css" rel="stylesheet">
     <link href="Assets/css/productsinfo.css" rel="stylesheet">
     <link href="Assets/css/main.css" rel="stylesheet">
+<<<<<<< HEAD
      
+=======
+>>>>>>> 9576931506f365e06fc9a153ea1ec5fb64e99bbb
 
-        <!-- javascript ajax -->
-        <script src="Assets/js/js_account.js"></script>
 
-        <!-- Custom styles for this template -->
-        <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
-        <script>
-            function doSearch() {
-                location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
-            }
-        </script>
+    <!-- javascript ajax -->
+    <script src="Assets/js/js_account.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
+    <script>
+        function doSearch() {
+            location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
+        }
+    </script>
 </head>
 
 <body>
@@ -61,7 +66,7 @@ if (!isset($_SESSION['is_admin'])) {
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <h5 class="mr-md-auto font-weight-normal">Hellenic Bookstore</h5>
+            <h5 class="mr-md-auto font-weight-normal"  style="margin-top: 5px;">Hellenic Bookstore</h5>
             <nav class="my-2 my-md-0 mr-md-3 navbar-nav" id="navbarsExampleDefault">
                 <a class="p-2 text-dark" href="account.php?p=start">Home</a>
                 <a class="p-2 text-dark" href="?p=products">Products</a>
