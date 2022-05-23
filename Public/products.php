@@ -46,9 +46,9 @@
            </nav> ";
 
     print "<tr> 
-        <th> Thumbnail </th>
-        <th> Name </th>
-        <th> Price </th>
+        <th style='width:10%'> Thumbnail </th>
+        <th style='width:50%'> Name </th>
+        <th style='width:10%'> Price </th>
         </tr>";
 
     while ($row = $result->fetch_assoc()) {

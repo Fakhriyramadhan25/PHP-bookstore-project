@@ -7,8 +7,10 @@ if ($stmt = $mysqli->prepare($sql)) {
 	$stmt->bind_param("i", $pid);
 	$stmt->execute();
 	$result = $stmt->get_result();
-	print "<table class='table table-striped table-bordered mb-2'>";
-
+	print"<form>
+ 		<input class='btn btn-dark' type='button' value='Back' onclick='history.back()'>
+		</form>";
+	print "<table class='table table-striped table-bordered mb-2'>"; 
 	while ($row = $result->fetch_assoc()) {
 		print <<<END
 			<div class='container mx-auto'>
@@ -39,9 +41,6 @@ if ($stmt = $mysqli->prepare($sql)) {
 					<p>$row[Description]</p>
 						<input id='qty' type='number' value='1' name='qty'> 
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_cart($row[ID])'>Add</button>
-						
-							
-				
 						<button class='btn btn-primary' id='btn_add_cart' onclick='add_wish($row[ID])'>Save to Wishlist</button>
 						</tr>
 						</div>

@@ -41,10 +41,6 @@ if (!isset($_SESSION['is_admin'])) {
     <link href="Assets/css/account.css" rel="stylesheet">
     <link href="Assets/css/productsinfo.css" rel="stylesheet">
     <link href="Assets/css/main.css" rel="stylesheet">
-<<<<<<< HEAD
-     
-=======
->>>>>>> 9576931506f365e06fc9a153ea1ec5fb64e99bbb
 
 
     <!-- javascript ajax -->
