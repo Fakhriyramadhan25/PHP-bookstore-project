@@ -3,7 +3,7 @@
     <div class="col-md-12">
 
     <h1>About Hellenic Bookstore</h1>
-    <p class="content">
+    <p class="text-justify">
     <h5 class="title">Our Story</h5>
     Hellenic Bookstore is a newly established online bookstore, run by four international students in Greece. Initially, it started as a part of their group project in university. However, they saw its potential to become something bigger, thus, they decided to expand it more. The shop was first launched in February 2022, with only 15 books available. All of the business activities, from shipment to web design, are all handled by themselves. Now, they have expanded the shop and added several more additional books, from fiction to non-fiction.
     <br/><br/>
