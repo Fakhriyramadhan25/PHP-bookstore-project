@@ -11,6 +11,4 @@ if (!isset($_SESSION['cart'][$pid])) {
 $_SESSION['cart'][$pid] += $_REQUEST['qty'];
 
 
-print "Added to Cart!!! <br>";
-
 require "Public/cart.php";

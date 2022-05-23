@@ -39,22 +39,21 @@ if (!isset($_SESSION['is_admin'])) {
     <!-- css details -->
     <link href="Assets/css/home.css" rel="stylesheet">
     <link href="Assets/css/productsinfo.css" rel="stylesheet">
+    <link href="Assets/css/main.css" rel="stylesheet">
 
+    <!-- javascript ajax -->
+    <script src="Assets/js/js_account.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="Assets/bootstrap/dashboard.css" rel="stylesheet">
-    
-
-    <script> 
-        function doSearch()
-        {
-            location.href="index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
-
+    <script>
+        function doSearch() {
+            location.href = "index.php?p=productsearch&searchquery=" + document.getElementById("searchtxt").value;
         }
     </script>
 </head>
 
-<body>  
+<body>
 
     <?php
     if (isset($_GET["sup"])) {
@@ -89,39 +88,41 @@ if (!isset($_SESSION['is_admin'])) {
             <a class="btn btn-outline-primary fixed-right" href="?p=login">Sign in</a>
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="row main-cont">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div id="maincontent">
+                    <?php
+                    if (!isset($_REQUEST['p'])) {
+                        $_REQUEST['p'] = 'start';
+                    }
+                    $p = $_REQUEST['p'];
+                    // list of the permited pages
+                    $pages = array(
+                        'blog', 'start',
+                        'shopinfo', 'login', 'do_login', 'after_login',
+                        'logout', 'myinfo', 'products', 'blog_op', 'blogtest', 'bloginsider',
+                        'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart', 'productsearch'
+                    );
 
-    <div class="row main-cont">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-
-            <?php
-            if (!isset($_REQUEST['p'])) {
-                $_REQUEST['p'] = 'start';
-            }
-            $p = $_REQUEST['p'];
-            // list of the permited pages
-            $pages = array('blog', 'start', 
-            'shopinfo', 'login', 'do_login', 'after_login', 
-            'logout', 'myinfo', 'products', 'blog_op', 'blogtest', 'bloginsider',
-            'cart', 'productinfo', 'add_cart', 'empty_cart', 'buy_cart');
-
-            $ok = false;
-            foreach ($pages as $pp) {
-                if ($pp == $p) {
-                    require "Public/$p.php";
-                    $ok = true;
-                }
-            }
-            if (!$ok) {
-                print "Page does not exists";
-            }
-            ?>
+                    $ok = false;
+                    foreach ($pages as $pp) {
+                        if ($pp == $p) {
+                            require "Public/$p.php";
+                            $ok = true;
+                        }
+                    }
+                    if (!$ok) {
+                        print "Page does not exists";
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-1"></div>
     </div>
 
-
-    <div class="footer">
+    <div class="footer mt-4">
         <div class="row">
             <div class="col-md-1">
             </div>

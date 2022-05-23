@@ -4,7 +4,7 @@ if (isset($_GET["error"])) {
     if ($error == "UP") {
         echo '<div class="alert alert-danger 
         alert-dismissible fade show" role="alert" id="popup">
-        <strong>Success!</strong> Wrong password or username! 
+        <strong>Error!</strong> Wrong password or username! 
         <button type="button" class="close"
             data-dismiss="alert" aria-label="Close"> 
             <span aria-hidden="true">×</span> 

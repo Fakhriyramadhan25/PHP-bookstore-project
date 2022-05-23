@@ -20,19 +20,20 @@ html body {
 }
 
 .main-cont{
-    height: 700px;
+    min-height: 750px;
     margin-top: 100px;
 }
 
 .icon-sosmed {
-    width: 25px;
+    width: 30px;
     max-height: auto;
     margin-top: 5px;
 }
 
 .footer {
     background-color: antiquewhite;
-    height: 250px;
+    min-height: 250px;
+    margin-top: 30px;
 }
 
 .footer-margin{
@@ -64,3 +65,6 @@ html body {
     text-align: center;
 }
 
+.container-fluid{
+    margin: 0px;
+}

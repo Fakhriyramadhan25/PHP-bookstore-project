@@ -12,7 +12,7 @@ html body {
 }
 
 .posisi{
-    margin-top: 20px;
+    margin-top: 40px;
    }
 
 .login-size{
@@ -32,7 +32,8 @@ html body {
 
 .footer {
     background-color: antiquewhite;
-    height: 250px;
+    min-height: 250px;
+    margin-top: 30px;
 }
 
 .footer-margin{
@@ -64,3 +65,7 @@ html body {
     text-align: center;
 }
 
+
+.container-fluid{
+    margin: 0;
+}
